@@ -1,0 +1,32 @@
+def exibir_menu():
+    print("\n--- SISTEMA DE CADASTRO ---")
+    print("1. Cadastrar Cliente")
+    print("2. Listar Clientes")
+    print("3. Sair")
+    return input("Escolha uma opção: ")
+
+clientes = []
+
+while True:
+    opcao = exibir_menu()
+
+    if opcao == "1":
+        nome = input("Nome do cliente: ")
+        email = input("E-mail: ")
+        # Armazenamos os dados em um dicionário
+        cliente = {"nome": nome, "email": email}
+        clientes.append(cliente)
+        print(f"Cliente {nome} cadastrado com sucesso!")
+
+    elif opcao == "2":
+        print("\n--- LISTA DE CLIENTES ---")
+        if not clientes:
+            print("Nenhum cliente cadastrado.")
+        for i, c in enumerate(clientes, 1):
+            print(f"{i}. Nome: {c['nome']} | E-mail: {c['email']}")
+
+    elif opcao == "3":
+        print("Encerrando o sistema...")
+        break
+    else:
+        print("Opção inválida! Tente novamente.")
